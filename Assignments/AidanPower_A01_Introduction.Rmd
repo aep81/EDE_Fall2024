@@ -1,6 +1,6 @@
 ---
 title: "Assignment 1: Introduction"
-author: "Student Name"
+author: Aidan Power
 output: pdf_document
 ---
 
@@ -23,21 +23,24 @@ Enter answers to the questions just below the >Answer: prompt.
 1. What are your previous experiences with data analytics, R, and Git? Include both formal and informal training.
 
 > Answer: 
+I have analyzed data for past research projects on softwares such as excel and minitab. An example of work on excel was using solver to find the optimal rotation in my previous Economics of Forest Resources class. The only instance of using Minitab was in an undergraduate biostatistics class where I selected the correct test, included appropriately organized data, and found coefficients and the p-value for various word problems. However, I have no previous experiences with R and github, although I am also using Git in my ENV859 class. 
 
 2. Are there any components of the course about which you feel confident?
 
 > Answer: 
+I am confident with the collaborative component of the course. I will, without hesitation, be able to reach out to peers and TA's if need be when a problem arrises. Besides that, I am very much new to the topics we will be going over, but also eager to learn them. 
 
 3. Are there any components of the course about which you feel apprehensive?
 
 > Answer: 
+I would not say that I have feelings as strong as apprehension for any of the components. There is of course the anxiety of not being able to turn in an assignment on time due to running into a problem on this software which I am very much new to. If I had to pick one module that I am the most intimidated by, I would select the Time Series Analysis. While a very important feature in most workplaces, it seems like a hassle to put together. 
 
 
 ## 2) GitHub
 
 Provide a link below to your forked course repository in GitHub. Make sure you have pulled all recent changes from the course repository and that you have updated your course README file, committed those changes, and pushed them to your GitHub account. 
 
-> Answer: 
+> Answer: https://github.com/aep81/EDE_Fall2024
 
 ## 3) Knitting
 When you have completed this document, click the `knit` button.This should produce a PDF copy of your markdown document. Submit this PDF to Canvas 
