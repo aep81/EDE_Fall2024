@@ -23,7 +23,7 @@ Enter answers to the questions just below the >Answer: prompt.
 1. What are your previous experiences with data analytics, R, and Git? Include both formal and informal training.
 
 > Answer: 
-I have analyzed data for past research projects on softwares such as excel and minitab. An example of work on excel was using solver to find the optimal rotation in my previous Economics of Forest Resources class. The only instance of using Minitab was in an undergraduate biostatistics class where I selected the correct test, included appropriately organized data, and found coefficients and the p-value for various word problems. However, I have no previous experiences with R and github, although I am also using Git in my ENV859 class. 
+I have analyzed data for past research projects (all formal) on softwares such as excel and minitab. An example of work on excel was using solver to find the optimal rotation in my previous Economics of Forest Resources class. The only instance of using Minitab was in an undergraduate biostatistics class where I selected the correct test, included appropriately organized data, and found coefficients and the p-value for various word problems. With all of this said, I have no previous experiences with R and github, although I am also using Git in my ENV859 class. 
 
 2. Are there any components of the course about which you feel confident?
 
@@ -40,7 +40,8 @@ I would not say that I have feelings as strong as apprehension for any of the co
 
 Provide a link below to your forked course repository in GitHub. Make sure you have pulled all recent changes from the course repository and that you have updated your course README file, committed those changes, and pushed them to your GitHub account. 
 
-> Answer: https://github.com/aep81/EDE_Fall2024
+> Answer: 
+https://github.com/aep81/EDE_Fall2024
 
 ## 3) Knitting
 When you have completed this document, click the `knit` button.This should produce a PDF copy of your markdown document. Submit this PDF to Canvas 
