@@ -1,6 +1,6 @@
 ---
 title: "Assignment 2: Coding Basics"
-author: "Student Name"
+author: Aidan Power
 output: pdf_document
 geometry: margin=2.54cm
 editor_options: 
@@ -32,7 +32,8 @@ This exercise accompanies the lessons/labs in Environmental Data Analytics on co
 
 ```{r basics 1}
 #1. 
-
+seq(1,55,5)
+seq(1,55,5) -> Seq1
 #2. 
 
 #3. 
