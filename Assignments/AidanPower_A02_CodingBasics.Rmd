@@ -106,3 +106,5 @@ if.else2(test_scores)
 ifelse worked because of it being a vectorized version of if...else. ifelse is a vector function based on how a simple set of values can be turned into an output. Since the if...else function does not work for vectors, an error message was read.  
 
 **NOTE** Before knitting, you'll need to comment out the call to the function in Q13 that does not work. (A document can't knit if the code it contains causes an error!)
+
+ git config pull.ff only
