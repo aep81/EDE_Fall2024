@@ -64,28 +64,32 @@ We might be interested in the ecotoxicology of neonicotoids based on how they ef
 3.  The Niwot Ridge litter and woody debris dataset was collected from the National Ecological Observatory Network, which collectively includes 81 aquatic and terrestrial sites across 20 ecoclimatic domains. 32 of these sites sample forest litter and woody debris, and we will focus on the Niwot Ridge long-term ecological research (LTER) station in Colorado. Why might we be interested in studying litter and woody debris that falls to the ground in forests? Feel free to do a brief internet search if you feel you need more background information.
 
 > Answer:
-
+We might be interested in studying litter and woody debris based on how a high mass of these can indicate a negative effect of the previously-mentioned insecticide. (?)
 4.  How is litter and woody debris sampled as part of the NEON network? Read the NEON_Litterfall_UserGuide.pdf document to learn more. List three pieces of salient information about the sampling methods here:
 
 > Answer: 
  1.
+ Trap placement is both targeted and randomized depending on vegetation cover and height.
  2.
+ 1-30 m^2 nested subplots utilized in 400 or 1600 m^2 plots. 
  3. 
+ All data taken at sites where there is evidence of woody vegetation being at least 2m tall.
 
 ## Obtain basic summaries of your data (Neonics)
 
 5.  What are the dimensions of the dataset?
 
-```{r}
-
+```{r Dimensions}
+dim(Neonics) #Gave me the number of rows in columns listed in the console pane (4623 rows, 30 columns). 
 
 ```
 
 6.  Using the `summary` function on the "Effect" column, determine the most common effects that are studied. Why might these effects specifically be of interest? [Tip: The `sort()` command is useful for listing the values in order of magnitude...]
 
-```{r}
-
-
+```{r CommonEffects}
+#colClasses = c('CAS.number'='factor')
+colnames(Neonics) <- c("Effect")
+sort(summary("Effect"))
 ```
 
 > Answer:
