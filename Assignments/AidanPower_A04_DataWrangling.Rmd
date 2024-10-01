@@ -77,29 +77,38 @@ dim(EPA.PM25.2019) #One value maximum for the dim function
 EPA.O3.2018$Date <- as.Date(EPA.O3.2018$Date, format = "%m/%d/%Y")
 EPA.O3.2019$Date <- as.Date(EPA.O3.2019$Date, format = "%m/%d/%Y")
 EPA.PM25.2018$Date <- as.Date(EPA.PM25.2018$Date, format ="%m/%d/%Y")
-EPA.PM25.2019$Date <- as.Date(EPA.PM25.2019$Date, format = "%m/%d/%Y")
-
+EPA.PM25.2019$Date <- as.Date(EPA.PM25.2019$Date, format = "%m/%d/%Y") 
+#Dates turned into objects
 #4
-EPA.O3.2018.Revised <- select(EPA.O3.2018, Date, DAILY_AQI_VALUE, Site.Name, AQS_PARAMETER_DESC, COUNTY, SITE_LATITUDE, SITE_LONGITUDE)
-EPA.O3.2019.Revised <- select(EPA.O3.2019, Date, DAILY_AQI_VALUE, Site.Name, AQS_PARAMETER_DESC, COUNTY, SITE_LATITUDE, SITE_LONGITUDE)
-EPA.PM25.2018.Revised <- select(EPA.PM25.2018, Date, DAILY_AQI_VALUE, Site.Name, AQS_PARAMETER_DESC, COUNTY, SITE_LATITUDE, SITE_LONGITUDE)
-EPA.PM25.2019.Revised <- select(EPA.PM25.2019, Date, DAILY_AQI_VALUE, Site.Name, AQS_PARAMETER_DESC, COUNTY, SITE_LATITUDE, SITE_LONGITUDE)#Selection of current columns
-
+EPA.O3.2018.Revised <- select(EPA.O3.2018, Date, DAILY_AQI_VALUE, Site.Name, AQS_PARAMETER_DESC, 
+COUNTY, SITE_LATITUDE, SITE_LONGITUDE)
+EPA.O3.2019.Revised <- select(EPA.O3.2019, Date, DAILY_AQI_VALUE, Site.Name, AQS_PARAMETER_DESC, 
+COUNTY, SITE_LATITUDE, SITE_LONGITUDE)
+EPA.PM25.2018.Revised <- select(EPA.PM25.2018, Date, DAILY_AQI_VALUE, Site.Name, AQS_PARAMETER_DESC, 
+COUNTY, SITE_LATITUDE, SITE_LONGITUDE)
+EPA.PM25.2019.Revised <- select(EPA.PM25.2019, Date, DAILY_AQI_VALUE, Site.Name, AQS_PARAMETER_DESC, 
+COUNTY, SITE_LATITUDE, SITE_LONGITUDE)#Selection of current columns
+#Made identical selection of columns for each of four datasets
 
 #5
-EPA.O3.2018.Revised <- mutate(EPA.O3.2018.Revised,AQS_PARAMETER_DESC = "Ozone")
-EPA.O3.2019.Revised <- mutate(EPA.O3.2019.Revised,AQS_PARAMETER_DESC = "Ozone")
 EPA.PM25.2018.Revised <- 
   mutate(EPA.PM25.2018.Revised,AQS_PARAMETER_DESC = "PM2.5")
 EPA.PM25.2019.Revised <- 
-  mutate(EPA.PM25.2019.Revised,AQS_PARAMETER_DESC = "PM2.5")
+  mutate(EPA.PM25.2019.Revised,AQS_PARAMETER_DESC = "PM2.5") #Revised parameter
 
 
 #6
-write.csv(EPA.O3.2018.Revised, row.names = FALSE, file =  "./Data/Processed/EPAair_O3_NC2018_processed.csv")
-write.csv(EPA.O3.2019.Revised, row.names = FALSE, file = "./Data/Processed/EPAair_O3_NC2019_processed.csv")
-write.csv(EPA.PM25.2018.Revised, row.names = FALSE, file = "./Data/Processed/EPAair_PM25_NC2018_processed.csv")
-write.csv(EPA.PM25.2019.Revised, row.names = FALSE, file = "./Data/Processed/EPAair_PM25_NC2019_processed.csv")#Same procedure, diff names
+write.csv(EPA.O3.2018.Revised, 
+row.names = FALSE, 
+file =  "./Data/Processed/EPAair_O3_NC2018_processed.csv")
+write.csv(EPA.O3.2019.Revised, 
+row.names = FALSE, 
+file = "./Data/Processed/EPAair_O3_NC2019_processed.csv")
+write.csv(EPA.PM25.2018.Revised, row.names = FALSE, 
+file = "./Data/Processed/EPAair_PM25_NC2018_processed.csv")
+write.csv(EPA.PM25.2019.Revised, row.names = FALSE, 
+file = "./Data/Processed/EPAair_PM25_NC2019_processed.csv")
+#Same procedure, diff names
 ```
 
 
@@ -136,11 +145,11 @@ EPA.Combined <- rbind(
   EPA.O3.2018.Revised,
   EPA.O3.2019.Revised,
   EPA.PM25.2018.Revised,
-  EPA.PM25.2019.Revised)
+  EPA.PM25.2019.Revised) #All four datasets organized into one (yay)
 
 #8 
-Site.Names <- sort(summary(EPA.Combined$Site.Name))
-Site.Names
+Site.Names <- sort(summary(EPA.Combined$Site.Name)) 
+Site.Names #Helped me decide how to filter
 EPA.Wrangled <-
   EPA.Combined %>% 
   filter(EPA.Combined$Site.Name %in% c("Linville Falls", "Durham Armory", 
@@ -152,19 +161,21 @@ EPA.Wrangled <-
             Mean.Lat = mean(SITE_LATITUDE),
             Mean.Long =mean(SITE_LONGITUDE)) %>%
   mutate(Year = year(ymd(Date)),
-         Month = month(ymd(Date))) 
+         Month = month(ymd(Date)))
+#Filitered certain sites, found averages for a few quant columns, and created 
+#two new columns
   
 
 #9
 EPA.Neat <- pivot_wider(EPA.Wrangled, names_from = AQS_PARAMETER_DESC, 
-                        values_from = Mean.AQI) 
+                        values_from = Mean.AQI) #Separated gasses by column
 
 #10
-dim(EPA.Neat) 
+dim(EPA.Neat) #Dimensions match those in Environment 
 
 #11
 write.csv(EPA.Neat, row.names = FALSE, file = "./Data/Processed/EPAair_O3_PM25_NC1819_Processed.csv")
-
+#Accounted for in Processed
 ```
 
 
@@ -182,7 +193,7 @@ EPA.Summary <-
   group_by(Site.Name, Month, Year) %>% 
   summarise(Mean.Ozone = mean(Ozone),
             Mean.PM25 = mean(PM2.5)) %>%
- drop_na(Mean.Ozone)
+ drop_na(Mean.Ozone) #Separated the data by gasses and omitted any NAs
   
   
 
